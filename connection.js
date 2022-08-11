@@ -1352,7 +1352,7 @@ class Connection {
         let from;
         try {
             results = rfc1869.parse('mail', line, this.cfg.main.strict_rfc1869 && !this.relaying);
-            from    = new Address (results.shift());
+            from    = new Address(results.pop());
         }
         catch (err) {
             this.errors++;
@@ -1410,7 +1410,7 @@ class Connection {
         let recip;
         try {
             results = rfc1869.parse('rcpt', line, this.cfg.main.strict_rfc1869 && !this.relaying);
-            recip   = new Address(results.shift());
+            recip   = new Address(results.pop());
         }
         catch (err) {
             this.errors++;
